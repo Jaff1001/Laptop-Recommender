@@ -1,0 +1,111 @@
+# ===============================
+#           ENTORNO PYTHON
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# venv
+venv/
+.venv/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# ===============================
+#        ARCHIVOS SENSIBLES
+# ===============================
+.env
+*.env
+.env.*
+*apikey*
+*key*
+*secret*
+
+# ===============================
+#       STREAMLIT / RUNTIME
+# ===============================
+.streamlit/
+*.log
+
+# Caché interna de streamlit
+**/.streamlit
+
+# ===============================
+#       LLAMAINDEX / EMBEDDINGS
+# ===============================
+storage/
+vector_store/
+index_store/
+cache/
+*.db
+*.pkl
+*.json
+*.bin
+
+# ===============================
+#           NEO4J
+# ===============================
+neo4j/
+data/
+logs/
+import/
+plugins/
+
+# ===============================
+#        ARCHIVOS BINARIOS
+# ===============================
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.webp
+*.zip
+*.rar
+*.tar
+*.gz
+
+# Allow assets/images since you need them
+src/assets/images/*.png
+!src/assets/images/*
+
+# ===============================
+#          SISTEMA
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+#        EDITORES / IDE
+# ===============================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ===============================
+#         COMPILACIÓN
+# ===============================
+*.exe
+*.dll
+*.so
+*.out
+
+# ===============================
+#         BUILD / DIST
+# ===============================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===============================
+#       DATOS Y CSV GRANDES
+# ===============================
+*.csv
+*.xlsx
+*.xls
+
+# Mantén el dataset final
+!src/data/finalDataset/laptopFinalDataset.csv
