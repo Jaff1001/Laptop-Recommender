@@ -2,7 +2,7 @@ import re
 from llama_index.graph_stores.neo4j import Neo4jGraphStore
 from llama_index.llms.groq import Groq
 from llama_index.embeddings.ollama import OllamaEmbedding
-
+import os
 
 class chatbotLaptopRecommender:
 
@@ -138,8 +138,8 @@ class chatbotLaptopRecommender:
         ORDER BY l.price ASC
         LIMIT 20
         """
-
-        with self.graph_connection._driver.session(database="laptopdatabase") as s:
+        
+        with self.graph_connection._driver.session(database=os.environ.get("NEO4J_DATABASE", "laptopdatabase")) as s:
             r = s.run(
                 cy,
                 gpu=filters["gpu"],
@@ -174,10 +174,9 @@ class chatbotLaptopRecommender:
                 ORDER BY score DESC, node.price ASC
             """
 
-            with self.graph_connection._driver.session(database="laptopdatabase") as s:
+            with self.graph_connection._driver.session(database=os.environ.get("NEO4J_DATABASE", "laptopdatabase")) as s:
                 res = s.run(cy, embedding=embedding)
                 return [r.data() for r in res]
-
         except Exception as e:
             return f"Error ejecutando búsqueda semántica: {e}"
 

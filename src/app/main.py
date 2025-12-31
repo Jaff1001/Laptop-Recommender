@@ -12,7 +12,7 @@ graph_connection = Neo4jGraphStore(
     username=os.environ["NEO4J_USER"],
     password=os.environ["NEO4J_PASSWORD"],
     url=os.environ["NEO4J_URI"],
-    database=os.environ["NEO4J_DATABASE"],
+    database=os.environ.get("NEO4J_DATABASE", "laptopdatabase"),
     refresh_schema=False
 )
 
@@ -25,7 +25,10 @@ llm = Groq(
     )
 
 # === Modelo de Embedding de Ollama ===
-embedding_model = OllamaEmbedding(model_name=os.environ["EMBEDDING_MODEL"])
+embedding_model = OllamaEmbedding(
+    model_name=os.environ["EMBEDDING_MODEL"],
+    base_url="http://ollama:11434"
+)
 
 
 # === Función principal ===
