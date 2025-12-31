@@ -6,7 +6,7 @@ class Interface:
     # === Constructor ===
     def __init__(self, chatbot):
         self.chatbot = chatbot
-        self.root =  BASE_DIR = Path(__file__).resolve().parent.parent / "assets" / "images"
+        self.root = Path(__file__).resolve().parent.parent / "assets" / "images"
         self.me_icon = self.root / "me.png"
         self.bot_icon = self.root / "bot.png"
         self.info_icon = self.root / "info.png"

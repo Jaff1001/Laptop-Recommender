@@ -15,16 +15,15 @@ done
 FLAG_FILE="/app/.db_initialized"
 
 if [ -f "$FLAG_FILE" ]; then
-  echo "La base de datos ya ha sido inicializada anteriormente (flag encontrado). Saltando..."
+  echo "La base de datos ya ha sido inicializada."
 else
-  echo "Poblando la base de datos laptopdatabase..."
+  echo "Poblando la base de datos..."
   if python src/data/databaseGenerator.py; then
     touch "$FLAG_FILE"
-    echo "Población completada y marca de control creada."
   else
     echo "Error al poblar la base de datos."
   fi
 fi
 
 echo "Iniciando la aplicación..."
-python run_app.py
+python src/run_app.py

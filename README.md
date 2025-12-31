@@ -27,7 +27,7 @@ EMBEDDING_MODEL=nomic-embed-text
 ## 2. Ejecución con Docker Compose
 Abra una terminal en la carpeta raíz del proyecto y ejecute el comando de construcción y arranque:
 ```env
-docker-compose up --build
+docker-compose --env-file .env -f docker/docker-compose.yml up --build
 ```
 
 Qué hará el sistema automáticamente?
@@ -40,6 +40,10 @@ Neo4j: Levanta el servicio y configura la base de datos laptopdatabase.
 Población de Datos: Ejecuta el script src/data/databaseGenerator.py para realizar el scraping de URLs reales y cargar los portátiles en el grafo.
 
 App: Lanza la interfaz de usuario desarrollada en Streamlit.
+
+Cuando el proceso haya finalizado vera en su terminal los siguientes mensajes:
+
+![Resultado de la ejecución](src/assets/images/docker.png)
 
 ## 3. Acceso y Pruebas
 Una vez que la terminal indique que la aplicación está lista, abra su navegador en la dirección local proporcionada por Streamlit:
